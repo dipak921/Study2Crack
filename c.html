@@ -28,7 +28,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link active" aria-current="page" href="index.html">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="about.html">About Us</a>
@@ -78,8 +78,11 @@
     <div class="container mt-3">
             <div class="row">
                 <div class="col-md-3">
-                    <h1>khe
-                    </h1>
+                    <div class="d-grid gap-2">
+                    <a href=""><button class="btn btn-primary" type="button">Notes</button></a>
+                    <a href="c_interviwe_q.html"><button class="btn btn-primary" type="button">Interview</button></a>
+                    <a href=""><button class="btn btn-primary" type="button">Interview with Answer</button></a>
+                  </div>
                 </div>
                  <div class="col-md-9">
                     <h1>C Language</h1>
@@ -117,8 +120,525 @@
                             </dl>
                         </p>
                     </div>
-                </div>
+                     <div>
+                      <h2>C Output (Print Text)</h2>
+                      <p class="fs-5">
+                        In C language, text or output is printed on the screen using the printf() function. <br>
+                        <ul>
+                          <h6>printf() Function</h6>
+                          <li>Defined in stdio.h</li>
+                          <li>Used to display text, numbers, and variables</li>
+                        </ul>
+                        <b>🔹Syntax</b> <br>
+                        Example <br> printf("text");
+                      </p>
+                      <h5>Double Quotes</h5>
+                      <p>
+                        In C language, double quotes <b>(" ")</b> are used to represent strings (a group of characters). <br>
+                        If you forget the double quotes, an error occurs: <br>
+                        <b>Example</b> <br>
+                        printf("This sentence will work!"); <br>
+                        printf(This sentence will produce an error.);   
+                      </p>
+
+                    </div>
+                    <div>
+                      <h2>C Variables</h2>
+                      <p class="fs-5">
+                        A variable in C is a named memory location used to store data that can change during program execution. <br>
+                        Syntax : <br>
+                        data_type variable_name; <br>
+                        <b>Example :</b> <br>
+                        // Declare a variable <br>
+                          int myNum;<br>
+                        // Assign a value to the variable <br>
+                        myNum = 15; <br>
+                      </p>
+                    </div>
+                    <div>
+                      <h2>C Variable Names</h2>
+                      <p class="fs-5">
+                        In C language, variable names are also called identifiers. <br>
+                        They are used to identify variables, functions, arrays, etc.
+                      </p>
+                      <b>Rules for Naming Variables in C</b> <br>
+                      <h5>✅ Allowed</h5>
+                      <ul>
+                        <li>Must start with a letter (a–z, A–Z) or underscore (_)</li>
+                        <li>Can contain letters, digits, and underscores</li>
+                        <li>Case-sensitive (total and Total are different)</li>
+                        <li>Length is usually up to 31 characters (compiler-dependent)</li>
+                      </ul>
+                      <h5>❌ Not Allowed</h5>
+                      <ul>
+                        <li>Cannot start with a number</li>
+                        <li>Cannot contain spaces</li>
+                        <li>Cannot use special characters like @, #, $, %</li>
+                        <li>Cannot be a C keyword</li>
+                      </ul>
+                      <h5>📌 Invalid Variable Names</h5>
+                      <img src="img/Variable_example.png" alt="">
+                    </div>
+
+                    <!-- Data Types -->
+                    <section>
+                      <div>
+                        <h2>Data Types</h2>
+                        <p class="fs-5">
+                          Data types in C define the type of data a variable can store, the amount of memory allocated to it, and the operations that can be performed on it. <br>
+                          <b>📌 Simple Definition (Easy Words) :</b> <br>
+                          A data type tells the compiler what kind of value a variable will hold
+                          (e.g., number, decimal, character).
+                        </p>
+                        <h5>Basic Data Types</h5>
+                        <p>The data type specifies the size and type of information the variable will store.</p> <br>
+                        <table class="table table-hover">
+                                  <thead>
+                                    <tr>
+                                      <th scope="col">Sr.No</th>
+                                      <th scope="col">Data Type</th>
+                                      <th scope="col">Description</th>
+                                      <th scope="col">Example</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <th scope="row">1</th>
+                                      <td>int</td>
+                                      <td>Stores whole numbers (positive or negative). Used for counting, age, quantity, etc.</td>
+                                      <td>int age = 25;</td>
+                                    </tr>
+                                    <tr>
+                                      <th scope="row">2</th>
+                                      <td>float</td>
+                                      <td>Stores decimal (fractional) numbers with single precision.</td>
+                                      <td>float price = 45.75;</td>
+                                    </tr>
+                                    <tr>
+                                      <th scope="row">3</th>
+                                      <td>double</td>
+                                      <td>Stores decimal numbers with double precision (more accurate than float).</td>
+                                      <td>double distance = 12345.6789;</td>
+                                    </tr>
+                                    <tr>
+                                      <th scope="row">4</th>
+                                      <td>char</td>
+                                      <td>Stores a single character using ASCII value.</td>
+                                      <td>char grade = 'A';</td>
+                                    </tr>
+                                    <tr>
+                                      <th scope="row">5</th>
+                                      <td>void</td>
+                                      <td>Represents no value. Used for functions that return nothing.</td>
+                                      <td>void display();</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                                <h5>Example Program</h5>
+                                <img src="img/variable_example1.png" alt="">
+                      </div>
+                    </section>  
+
+                    <!-- C Type Conversion (Type Casting) — In Detail -->
+                    <section>
+                      <div>
+                        <h2>C Type Conversion (Type Casting) — In Detail</h2>
+                        <p class="fs-5">
+                            Type conversion in C is the process of converting one data type into another. <br>
+                            It is used when operations involve different data types. <br>
+                            <b>There are two types of conversion in C:</b>
+                            <ul>
+                              <li>Implicit Conversion (automatically)</li>
+                              <li>Explicit Conversion (manually)</li>
+                            </ul>
+                          </p>
+                      </div>
+                      <div>
+                        <h5>Implicit Conversion (automatically)</h5>
+                        <p>
+                          <ul>
+                            <li>Done automatically by the compiler</li>
+                            <li>Converts lower data type → higher data type</li>
+                            <li>No data loss (generally)</li>
+                          </ul>
+                          <b>Conversion Order -> char → int → float → double</b> <br>
+                          <img src="img/Implicit Type Conversion (Automatic).png" alt="">
+                        </p>
+                        <h5>Explicit Type Conversion (Type Casting)</h5>
+                        <p class="fs-5">
+                          <ul>
+                            <li>Done manually by the programmer</li>
+                            <li>May cause data loss</li>
+                          </ul>
+                          <b>Syntax</b> <br>
+                          (type) expression
+                        </p>
+                        <img src="img/Explicit Type Conversion.png" alt="">
+                      </div>
+                    </section>
+
+                    <!-- C Constants -->
+                    <section>
+                      <div>
+                        <h2>C Constants</h2>
+                        <p class="fs-5">
+                          <ul>
+                            <li>In C language, a constant is a fixed value that cannot be changed during program execution.</li>
+                            <li><b>Definition: </b> Constants are values whose value remains the same throughout the program.</li>
+                          </ul>
+                          Now that you have seen different types of variables in C, you should also know that sometimes you need variables that should not change. <br>
+                          This can be done with the const keyword, which makes a variable unchangeable and read-only:
+                        </p>
+                        <img src="img/Constants.png" alt="">
+                      </div>
+                    </section>
+
+                    <!--Operator in c SEction  -->
+                    <section>
+                      <div>
+                        <h2>Operator</h2>
+                        <p class="fs-5">
+                          In C language, operators are special symbols used to perform operations on variables and values. <br>
+                          <b>📌 Definition </b><br>
+                          👉 Operators in C are symbols that perform mathematical, logical, relational, or assignment operations on operands.
+                         <h6>📌 Types of Operators in C</h6>
+                         <ol>
+                          <li> Arithmetic Operators</li> <br>
+                          <b>Used for mathematical calculations.</b>
+                          <table class="table">
+                              <thead>
+                                <tr>
+                                  <th scope="col">Operator</th>
+                                  <th scope="col">Meaning</th>
+                                  <th scope="col">Example</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <th scope="row">+</th>		
+                                  <td>Addition</td>
+                                  <td>a + b;</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">-</th>
+                                  <td>Subtraction</td>
+                                  <td>a - b</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">*</th>
+                                  <td>Multiplication</td>
+                                  <td>a * b</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">/</th>
+                                  <td>Division</td>
+                                  <td>a / b</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">%</th>
+                                  <td>Modulus (remainder)</td>
+                                  <td>a % b</td>
+                                </tr>
+                              </tbody>
+                          </table>
+                          <h6>Example :</h6>
+                              <img src="img/Arithmetic Operators.png" alt="">
                 
+
+                          <li> Relational Operators</li><br>
+                          <b>Used to compare values (result is true/false).</b>
+                          <table class="table table-hover">
+                            <thead>
+                              <tr>
+                                <th scope="col">Operator</th>
+                                <th scope="col">Meaning</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <th scope="row">==</th>
+                                <td>Equal to</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">!=</th>
+                                <td>Not equal</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">></th>
+                                <td>Greater than</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">&lt;</th>
+                                <td>Less than</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">>=</th>
+                                <td> Greater than or equal</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">&lt;=</th>
+                                <td>Less than or equal</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <h6>Example :</h6>
+                          <img src="img/Relational Operators.png" alt="">
+
+                          <li> Logical Operators</li><br>
+                          <b>Used to combine conditions.</b>
+                              <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Operator</th>
+                                        <th>Meaning</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><code>&amp;&amp;</code></td>
+                                        <td>Logical AND</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>!</code></td>
+                                        <td>Logical NOT</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <b>Example :</b>
+                            <img src="img/Logical Operators.png" alt="">
+
+
+                          <li> Assignment Operators</li>
+                          <b>Used to assign values.</b>
+                              <table class="table table-hover">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">Operator</th>
+                                    <th scope="col">Example</th>
+                                    <th scope="col">Meaning</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <th scope="row">=</th>
+                                    <td>a = 10</td>
+                                    <td>Assign</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">+=</th>
+                                    <td>a+=5</td>
+                                    <td>a = a + 5</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">-=</th>
+                                    <td>a -= 5</td>
+                                    <td>a -= 5</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">*=</th>
+                                    <td>a*=2</td>
+                                    <td>a = a * 2</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">/=</th>
+                                    <td>a /= 2</td>
+                                    <td>a = a / 2</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+
+                          <li> Increment & Decrement Operators</li>
+                            <b>Increase or decrease value by 1.</b>
+                             <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Operator</th>
+                                        <th>Meaning</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>++</td>
+                                        <td>Increment</td>
+                                    </tr>
+                                    <tr>
+                                        <td>--</td>
+                                        <td>Decrement</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <b>Example :</b>
+                            <img src="img/Increment & Decrement Operators.png" alt="">
+
+
+                          <li> Bitwise Operators</li>
+                              <b>Operate on binary bits.</b>
+                              <table class="table">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">Operator</th>
+                                    <th scope="col">Meaning </th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <th scope="row">&</th>
+                                    <td>Bitwise AND</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">^</th>
+                                    <td>XOR</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">3</th>
+                                    <td>John</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">&lt;&lt;</th>
+                                    <td>Left shift</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">>></th>
+                                    <td>Right shift</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                          <li>Conditional (Ternary) Operator</li>
+                          <p>
+                            The conditional (ternary) operator in C provides a concise way to write simple if-else logic using three operands. <br>
+                            <b>Syntax :</b> <br>
+                            It follows the form condition ? expression1 : expression2. The condition evaluates to true (non-zero) or false (zero); if true, expression1 executes, otherwise expression2 executes.
+                          </p>
+                          <li>Special Operators
+                            <ul>
+                              <li>sizeof</li>
+                              <li>Address-of operator (&)</li>
+                              <li>Pointer operator (*)</li>
+                              <li>Structure member operator (.)</li>
+                              <li>Structure pointer operator (->)</li>
+                              <li>Comma operator (,)</li>
+                            </ul>
+                          </li>
+                         </ol>
+                        </p>
+                        <b>Program Using Operator :</b><br>
+                        <img src="img/Program Using Operators.png" alt="">
+                      </div>
+                    </section>
+
+                    <!-- C Booleans -->
+                     <section>
+                      <div>
+                        <h2>C Booleans</h2>
+                        <p>
+                          <b>Definition :</b> <br>Boolean is a logical data concept used in C to represent two possible values: true or false. <br>
+                          In C language, Boolean values are mainly used for decision making, conditions, and loop control. <br>
+                          <b>Using int (Traditional Method)</b> <br>
+                          0 → false <br>
+                          1 (or any non-zero value) → true <br>
+                          <img src="img/Booleans.png" alt="">
+                        </p>
+                      </div>
+                     </section>
+
+                     <!-- Conditions  -->
+                      <section>
+                        <div>
+                            <h2>Conditions and If Statements</h2>
+                            <p>
+                              <b>Condition</b> <br>A condition is a logical expression that evaluates to either true (1) or false (0).
+                              Conditions are mainly used for decision making in C programs. <br>
+                            </p>
+                            <h2>The if Statement</h2>
+                            <p>The if statement is a conditional control statement used to execute a block of code only when a condition is true.</p>
+                            <p>
+                              <b>Syntax</b> <br>
+                                if (condition) { <br>
+                                // code executes if condition is true <br>
+                                } <br>
+                            </p>
+                            <b>Example :</b> <br>
+                            <img src="img/If.png" alt="">
+
+                            <h2>Else If</h2>
+                            <p>
+                              <b>Else :</b> <br>Use the else if statement to specify a new condition if the first condition is false. <br>
+                              <h6>Else-If</h6>
+                              The if–else statement in C is a decision-making statement used to execute one block of code if a condition is true, and another block if the condition is false.
+                              <br> <img src="img/if_else.png" alt=""> <br>
+                              <b>Example :</b>
+                              <br> 
+                              <img src="img/if-else_example.png" alt="">
+                            </p>
+
+                            <h2>Short Hand If...Else (Ternary Operator)</h2>
+                            <p>
+                              The ternary operator is a short-hand form of the if–else statement used to make decisions in a single line. <br>
+                              USE THIS THOSE OPERATOR -> ?, : <br>
+                              <b>Syntax :</b> <br>
+                              condition ? expression1 : expression2;
+                              <ul>explanations of syntax
+                                <li>If condition is true → expression1 executes</li>
+                                <li>If condition is false → expression2 executes</li>
+                              </ul>
+                            </p>
+
+                            <h2>Nested if Statement in C</h2>
+                            <p>A nested if statement is an if statement inside another if statement.
+                              It is used when one condition depends on another condition.
+                              <br> <b>Syntax :</b> <br>
+                              <img src="img/Nested if syntax.png" alt=""> <br>
+                              <b>Example :</b> <br>
+                              <img src="img/nested if example.png" alt="">
+                            </p>
+                            <h2> C Logical Operators in Conditions</h2>
+                            <p>
+                              Logical operators in C are used to combine, compare, or negate conditions.
+                              They are mostly used inside if, if–else, loops, and ternary operators. <br>
+                              <b>📌 Definition</b> <br>
+                              👉 Logical operators evaluate expressions and return a Boolean result (true or false). <br>
+                              <img src="img/Logiccal operator.png" alt="">
+                            </p>
+                        </div>
+                      </section>
+
+                      <!-- C Switch -->
+                       <section>
+                        <div>
+                          <h2>Switch in C </h2>
+                          <p>
+                            <b>Switch :</b> <br>
+                            The switch statement in C is a multi-way decision control statement. <br>
+                            It allows a variable or expression to be tested against multiple constant values and executes the matching case. <br>
+                            <b>Why need Switch :</b> <br>
+                            <ul>
+                              <li>Cleaner than multiple if–else if</li>
+                              <li>Easier to read and maintain</li>
+                              <li>Faster execution in many cases (compiler optimization)</li>
+                            </ul>
+                            <b>Syntax :</b> <br>
+                            <img src="img/Switch_syntax.png" alt=""> <br>
+                            <b>How it works :</b> <br>
+                            <ul>
+                              <li>expression is evaluated once</li>
+                              <li>Its value is compared with each case</li>
+                              <li>Matching case block executes</li>
+                              <li>break stops execution and exits switch</li>
+                              <li>If no match → default runs</li>
+                            </ul>
+                            <b>Example :</b> <br>
+                            <img src="img/Switch_example.png" alt="">
+                          </p>
+                        </div>
+                       </section>
+
+
+
+
+
+
+                    <!-- second part div -->
+              </div>
             </div>
         </div>
 
