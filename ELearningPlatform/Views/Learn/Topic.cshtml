@@ -1,0 +1,95 @@
+@model ELearningPlatform.Models.Topic
+
+@{
+    ViewData["Title"] = Model.Title;
+    ViewData["IsFullWidth"] = true;
+    var allTopics = ViewBag.AllTopics as List<ELearningPlatform.Models.Topic>;
+}
+
+<div class="container-fluid px-0 h-100 d-flex flex-column" style="min-height: calc(100vh - 72px);">
+    <div class="row g-0 flex-grow-1">
+        <!-- Sidebar Navigation -->
+        <div class="col-md-3 col-xl-2 sidebar d-none d-md-block">
+            <h5 class="text-light mb-3 px-3 fw-bold">@ViewBag.CourseTitle</h5>
+            <nav class="nav flex-column">
+                @if (allTopics != null)
+                {
+                    foreach (var topic in allTopics)
+                    {
+                        var isActive = topic.Id == Model.Id ? "active fw-bold" : "";
+                        <a class="nav-link @isActive" asp-controller="Learn" asp-action="Topic" asp-route-courseId="@ViewBag.CourseId" asp-route-topicId="@topic.Id">
+                            @topic.Title
+                        </a>
+                    }
+                }
+            </nav>
+            <div class="mt-4 px-3">
+                <a asp-controller="Learn" asp-action="CourseOverview" asp-route-id="@ViewBag.CourseId" class="btn btn-outline-secondary w-100">Course Outlines</a>
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="col-md-9 col-xl-10 content-area">
+            <div class="d-md-none mb-4">
+                <a asp-controller="Learn" asp-action="CourseOverview" asp-route-id="@ViewBag.CourseId" class="btn btn-outline-secondary btn-sm mb-3">Course Outlines</a>
+                <select class="form-select bg-dark text-light border-secondary" onchange="window.location.href=this.value">
+                    @if (allTopics != null) {
+                        foreach (var topic in allTopics)
+                        {
+                            if (topic.Id == Model.Id) {
+                                <option value="@Url.Action("Topic", "Learn", new { courseId = ViewBag.CourseId, topicId = topic.Id })" selected>
+                                    @topic.Title
+                                </option>
+                            } else {
+                                <option value="@Url.Action("Topic", "Learn", new { courseId = ViewBag.CourseId, topicId = topic.Id })">
+                                    @topic.Title
+                                </option>
+                            }
+                        }
+                    }
+                </select>
+            </div>
+
+            <h1 class="display-4 fw-bold">@Model.Title</h1>
+            <hr class="border-secondary mb-4" />
+
+            <div class="topic-content" style="font-size: 1.1rem; line-height: 1.8; color: #cbd5e1;">
+                @Html.Raw(Model.Description)
+            </div>
+
+            @if (!string.IsNullOrEmpty(Model.CodeExample))
+            {
+                <h4 class="mt-5 mb-3 fw-bold text-light">Example</h4>
+                <div class="position-relative">
+                    <pre><code class="language-csharp">@Model.CodeExample</code></pre>
+                </div>
+            }
+
+            <div class="mt-5 pt-4 border-top border-secondary d-flex justify-content-between pb-5">
+                @{
+                    var currentIndex = allTopics?.FindIndex(t => t.Id == Model.Id) ?? -1;
+                    var prevTopic = currentIndex > 0 ? allTopics[currentIndex - 1] : null;
+                    var nextTopic = currentIndex < (allTopics?.Count - 1) && currentIndex >= 0 ? allTopics[currentIndex + 1] : null;
+                }
+
+                @if (prevTopic != null)
+                {
+                    <a asp-controller="Learn" asp-action="Topic" asp-route-courseId="@ViewBag.CourseId" asp-route-topicId="@prevTopic.Id" class="btn btn-outline-secondary">
+                        &laquo; Previous: @prevTopic.Title
+                    </a>
+                }
+                else
+                {
+                    <div></div>
+                }
+
+                @if (nextTopic != null)
+                {
+                    <a asp-controller="Learn" asp-action="Topic" asp-route-courseId="@ViewBag.CourseId" asp-route-topicId="@nextTopic.Id" class="btn btn-primary">
+                        Next: @nextTopic.Title &raquo;
+                    </a>
+                }
+            </div>
+        </div>
+    </div>
+</div>

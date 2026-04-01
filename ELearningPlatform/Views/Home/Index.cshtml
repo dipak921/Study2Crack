@@ -1,0 +1,223 @@
+@{
+    ViewData["Title"] = "Study2Crack - Learn Coding the Easy Way";
+    ViewData["IsFullWidth"] = true;
+}
+
+<!-- B. Hero Section (Top Banner) & C. Search Bar -->
+<div class="container-fluid py-5 text-center shadow-lg position-relative" style="background: linear-gradient(135deg, rgba(15,23,42,1) 0%, rgba(30,41,59,1) 100%); overflow: hidden;">
+    <div class="row pt-5 pb-5 justify-content-center position-relative z-1">
+        <div class="col-lg-8">
+            <h1 class="display-3 fw-bolder mb-3" style="color: #38bdf8;">Learn Coding the Easy Way</h1>
+            <p class="lead text-light opacity-75 mb-5" style="font-size: 1.5rem;">
+                Simple explanations, real examples, no videos.
+            </p>
+            
+            <!-- C. Search Bar -->
+            <div class="row justify-content-center mb-5">
+                <div class="col-md-8">
+                    <form asp-controller="Learn" asp-action="Index" method="get" class="d-flex bg-dark rounded-pill p-2 shadow-sm border border-secondary">
+                        <input type="text" name="search" class="form-control bg-transparent border-0 text-light px-4 fs-5" placeholder="What do you want to learn? (e.g. C#, SQL, HTML)" style="box-shadow: none;" />
+                        <button type="submit" class="btn btn-primary rounded-pill px-4 fw-bold"><i class="fas fa-search me-2"></i> Search</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-center gap-3">
+                <a asp-controller="Learn" asp-action="Index" class="btn btn-info text-dark btn-lg px-5 py-3 fw-bold shadow-sm rounded-pill">Start Learning</a>
+                <a asp-controller="Learn" asp-action="Index" class="btn btn-outline-light btn-lg px-5 py-3 fw-bold shadow-sm rounded-pill">Explore Courses</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5 pt-5">
+    <!-- D. Featured / Popular Courses -->
+    <div class="row mb-5 text-center">
+        <div class="col-12 mb-4">
+            <h2 class="fw-bold text-light">Featured Courses</h2>
+            <p class="text-secondary fs-5">Jump straight into our most popular modules.</p>
+        </div>
+        
+        <!-- Course Cards Grid -->
+        <div class="col-md-4 mb-4">
+            <div class="card bg-dark border-secondary h-100 shadow-sm" style="transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                <div class="card-header bg-transparent border-secondary text-center py-4">
+                    <i class="fab fa-html5 fa-4x" style="color: #e34f26;"></i>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title fw-bold text-light">HTML & CSS</h5>
+                    <p class="card-text text-secondary">The foundation of the web. Learn how to structure and beautifully style any website from scratch.</p>
+                </div>
+                <div class="card-footer bg-transparent border-0 pb-4">
+                    <button class="btn btn-outline-info w-100 fw-bold rounded-pill">Start Learning &rarr;</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card bg-dark border-secondary h-100 shadow-sm" style="transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                <div class="card-header bg-transparent border-secondary text-center py-4">
+                    <i class="fab fa-js fa-4x" style="color: #f7df1e;"></i>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title fw-bold text-light">JavaScript</h5>
+                    <p class="card-text text-secondary">Bring your websites to life. Understand variables, functions, DOM manipulation, and modern ES6.</p>
+                </div>
+                <div class="card-footer bg-transparent border-0 pb-4">
+                    <button class="btn btn-outline-warning w-100 fw-bold rounded-pill">Start Learning &rarr;</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card bg-dark border-secondary h-100 shadow-sm" style="transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                <div class="card-header bg-transparent border-secondary text-center py-4">
+                    <i class="fab fa-windows fa-4x" style="color: #68217a;"></i>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title fw-bold text-light">C# & .NET</h5>
+                    <p class="card-text text-secondary">Build robust backend systems, APIs, and enterprise software using Microsoft's premier framework.</p>
+                </div>
+                <div class="card-footer bg-transparent border-0 pb-4">
+                    <button class="btn btn-outline-danger w-100 fw-bold rounded-pill">Start Learning &rarr;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- E. Categories Section -->
+    <div class="row mb-5 py-5 border-top border-bottom border-secondary opacity-75">
+        <div class="col-12 text-center mb-4">
+             <h3 class="fw-bold text-light">Explore Top Categories</h3>
+        </div>
+        <div class="col-md-3 text-center mb-3">
+             <div class="p-4 rounded shadow-sm bg-dark">
+                <i class="fas fa-globe text-primary fa-2x mb-3"></i>
+                <h5 class="text-light">Web Development</h5>
+             </div>
+        </div>
+        <div class="col-md-3 text-center mb-3">
+             <div class="p-4 rounded shadow-sm bg-dark">
+                <i class="fas fa-code text-success fa-2x mb-3"></i>
+                <h5 class="text-light">Programming</h5>
+             </div>
+        </div>
+        <div class="col-md-3 text-center mb-3">
+             <div class="p-4 rounded shadow-sm bg-dark">
+                <i class="fas fa-database text-warning fa-2x mb-3"></i>
+                <h5 class="text-light">Database (SQL)</h5>
+             </div>
+        </div>
+        <div class="col-md-3 text-center mb-3">
+             <div class="p-4 rounded shadow-sm bg-dark">
+                <i class="fas fa-cogs text-info fa-2x mb-3"></i>
+                <h5 class="text-light">.NET Technologies</h5>
+             </div>
+        </div>
+    </div>
+
+    <!-- F. Why Choose Us -->
+    <div class="row mb-5 justify-content-center text-center">
+        <div class="col-md-10 mb-4">
+            <h2 class="fw-bold text-light mb-4">Why Choose Study2Crack?</h2>
+            <div class="row g-4 text-start">
+                <div class="col-md-6 d-flex align-items-start">
+                    <i class="fas fa-check-circle text-success fa-2x me-3 mt-1"></i>
+                    <div>
+                        <h4 class="text-light">Simple Explanations</h4>
+                        <p class="text-secondary">We break down complex computer science topics into plain English paragraphs.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 d-flex align-items-start">
+                    <i class="fas fa-ban text-danger fa-2x me-3 mt-1"></i>
+                    <div>
+                        <h4 class="text-light">No Videos</h4>
+                        <p class="text-secondary">Stop pausing and rewinding. Skim our text tutorials at your exact reading speed.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 d-flex align-items-start">
+                    <i class="fas fa-baby text-info fa-2x me-3 mt-1"></i>
+                    <div>
+                        <h4 class="text-light">Beginner Friendly</h4>
+                        <p class="text-secondary">Zero experience required. We hold your hand from 'Hello World' to Deployment.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 d-flex align-items-start">
+                    <i class="fas fa-laptop-code text-warning fa-2x me-3 mt-1"></i>
+                    <div>
+                        <h4 class="text-light">Practical Examples</h4>
+                        <p class="text-secondary">Every single theory is accompanied by a ready-to-run copyable code snippet.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- G. How It Works -->
+    <div class="row mb-5 py-5 rounded shadow" style="background: rgba(30, 41, 59, 0.4);">
+        <div class="col-md-12 text-center mb-5">
+            <h2 class="fw-bold text-light">How It Works</h2>
+        </div>
+        <div class="col-md-3 px-4 text-center mb-4">
+            <div class="display-4 text-secondary opacity-50 fw-bold mb-3">1</div>
+            <h5 class="text-info fw-bold">Choose Course</h5>
+            <p class="text-secondary small">Find the tech stack you wish to master today.</p>
+        </div>
+        <div class="col-md-3 px-4 text-center mb-4">
+            <div class="display-4 text-secondary opacity-50 fw-bold mb-3">2</div>
+            <h5 class="text-warning fw-bold">Read Notes</h5>
+            <p class="text-secondary small">Read carefully designed zero-fluff text explanations.</p>
+        </div>
+        <div class="col-md-3 px-4 text-center mb-4">
+            <div class="display-4 text-secondary opacity-50 fw-bold mb-3">3</div>
+            <h5 class="text-danger fw-bold">Practice Code</h5>
+            <p class="text-secondary small">Type out our examples in your own IDE or editor.</p>
+        </div>
+        <div class="col-md-3 px-4 text-center mb-4">
+            <div class="display-4 text-secondary opacity-50 fw-bold mb-3">4</div>
+            <h5 class="text-success fw-bold">Improve Fast</h5>
+            <p class="text-secondary small">Build projects and accelerate your specific career.</p>
+        </div>
+    </div>
+
+    <!-- H. Achievements & I. Testimonials -->
+    <div class="row mb-5 pb-5 justify-content-center">
+        <!-- Stats -->
+        <div class="col-md-4 mb-5 text-center d-flex flex-column justify-content-center border-end border-secondary">
+            <h2 class="display-4 fw-bold text-info">300+</h2>
+            <p class="lead text-light">Total Courses</p>
+            <h2 class="display-4 fw-bold text-warning mt-4">12k+</h2>
+            <p class="lead text-light">Active Users</p>
+        </div>
+        <!-- Reviews -->
+        <div class="col-md-7 ps-md-5">
+            <h2 class="fw-bold text-light mb-4">Our Learners Say...</h2>
+            
+            <div class="card bg-dark border-secondary shadow-sm mb-3">
+                <div class="card-body">
+                    <div class="text-warning mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="text-secondary fst-italic">"I absolutely hate pausing programming videos to copy code. This text-based W3Schools-like approach is the fastest way I've ever learned C#!"</p>
+                    <h6 class="text-light m-0 fw-bold">- Sara W., Junior Dev</h6>
+                </div>
+            </div>
+            
+            <div class="card bg-dark border-secondary shadow-sm">
+                <div class="card-body">
+                    <div class="text-warning mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="text-secondary fst-italic">"The ASP.NET MVC modules on Study2Crack are straight to the point. No fluff, just practical syntax examples."</p>
+                    <h6 class="text-light m-0 fw-bold">- John D., Backend Eng</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- J. Call to Action -->
+    <div class="row pb-5 pt-3">
+        <div class="col-12">
+            <div class="p-5 text-center text-light shadow-lg rounded" style="background: linear-gradient(90deg, #1e293b 0%, #0f172a 100%); border: 1px solid rgba(56, 189, 248, 0.3);">
+                <h2 class="display-5 fw-bold mb-4">Start your learning journey today!</h2>
+                <a asp-controller="Learn" asp-action="Index" class="btn btn-primary btn-lg rounded-pill px-5 py-3 fw-bold shadow-sm">Get Started It's Free</a>
+            </div>
+        </div>
+    </div>
+</div>

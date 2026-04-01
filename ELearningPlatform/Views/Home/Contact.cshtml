@@ -1,0 +1,60 @@
+@model ELearningPlatform.Models.ContactMessage
+@{
+    ViewData["Title"] = "Contact Us";
+}
+
+<div class="row justify-content-center mt-5 pt-3">
+    <div class="col-lg-6 col-md-8">
+        <div class="text-center mb-5">
+            <h1 class="display-5 fw-bold text-light">Get In Touch</h1>
+            <p class="text-secondary fs-5">Have a question or feedback? We'd love to hear from you.</p>
+        </div>
+
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div class="alert alert-success d-flex align-items-center mb-4 shadow" role="alert" style="border-radius: 12px; background: rgba(5, 150, 105, 0.2); border: 1px solid rgba(5, 150, 105, 0.4); color: #34d399;">
+                <div class="fw-bold px-2 py-1">
+                    @TempData["SuccessMessage"]
+                </div>
+            </div>
+        }
+
+        <div class="card shadow-lg p-5 border-0" style="background: rgba(30, 41, 59, 0.5); backdrop-filter: blur(12px); border-radius: 16px;">
+            <form asp-action="Contact">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                <div class="mb-4">
+                    <label asp-for="Name" class="form-label text-light opacity-75 fw-bold">Your Name</label>
+                    <input asp-for="Name" class="form-control form-control-lg bg-dark text-light border-secondary" placeholder="John Doe" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <div class="mb-4">
+                    <label asp-for="Email" class="form-label text-light opacity-75 fw-bold">Email Address</label>
+                    <input asp-for="Email" class="form-control form-control-lg bg-dark text-light border-secondary" placeholder="name@example.com" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="mb-4">
+                    <label asp-for="Subject" class="form-label text-light opacity-75 fw-bold">Subject</label>
+                    <input asp-for="Subject" class="form-control form-control-lg bg-dark text-light border-secondary" placeholder="How can we help?" />
+                    <span asp-validation-for="Subject" class="text-danger"></span>
+                </div>
+
+                <div class="mb-4">
+                    <label asp-for="MessageText" class="form-label text-light opacity-75 fw-bold">Message</label>
+                    <textarea asp-for="MessageText" class="form-control bg-dark text-light border-secondary" rows="5" placeholder="Write your message here..."></textarea>
+                    <span asp-validation-for="MessageText" class="text-danger"></span>
+                </div>
+
+                <div class="d-grid mt-5">
+                    <button type="submit" class="btn btn-primary btn-lg shadow">Send Message &rarr;</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

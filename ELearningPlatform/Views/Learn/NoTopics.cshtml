@@ -1,0 +1,8 @@
+@{
+    ViewData["Title"] = "No Topics";
+}
+<div class="container text-center mt-5">
+    <h2>@ViewBag.CourseTitle</h2>
+    <p class="text-muted mt-3">This course doesn't have any topics yet.</p>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-primary mt-3">Back to Courses</a>
+</div>

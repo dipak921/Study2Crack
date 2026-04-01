@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Study2Crack</title>
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ELearningPlatform.styles.css" asp-append-version="true" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Fira+Code&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body class="bg-dark text-light">
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Study2Crack</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="About">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-info" asp-area="" asp-controller="Learn" asp-action="Index">Courses</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Contact">Contact Us</a>
+                        </li>
+                        @if (User.Identity != null && User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-warning fw-bold border-start border-secondary ms-2 ps-3" asp-area="" asp-controller="Courses" asp-action="Index">Add Courses</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-warning fw-bold" asp-area="" asp-controller="Topics" asp-action="Index">Add Topics</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-warning fw-bold" asp-area="" asp-controller="Messages" asp-action="Index"> Messages</a>
+                            </li>
+                        }
+                    </ul>
+                    <ul class="navbar-nav">
+                        @if (User.Identity != null && User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-danger" asp-controller="Account" asp-action="Logout">Logout (@User.Identity.Name)</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-info" asp-controller="Account" asp-action="Login">Admin Login</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <div class="@(ViewData["IsFullWidth"] != null ? "container-fluid px-0" : "container")">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <!-- Footer Start -->
+    <footer class="text-light pt-5 pb-3 mt-5 shadow-lg" style="background: rgba(15, 23, 42, 0.95); border-top: 1px solid rgba(255,255,255,0.05);">
+        <div class="container">
+            <div class="row gy-5">
+                
+                <!-- 1. About Section -->
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-uppercase fw-bold text-info mb-3">Study2Crack</h5>
+                    <p class="small text-secondary" style="line-height: 1.6;">
+                        The ultimate destination for text-based interactive coding tutorials. Master programming languages through crystal clear explanations and rich code examples. No videos, just pure learning.
+                    </p>
+                </div>
+                
+                <!-- 2. Popular Courses Section -->
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="text-uppercase fw-bold text-info mb-3">Popular Tracks</h5>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="#" class="text-secondary text-decoration-none" onmouseover="this.className='text-light text-decoration-none'" onmouseout="this.className='text-secondary text-decoration-none'" style="transition: color 0.3s;">HTML & CSS</a></li>
+                        <li class="mb-2"><a href="#" class="text-secondary text-decoration-none" onmouseover="this.className='text-light text-decoration-none'" onmouseout="this.className='text-secondary text-decoration-none'" style="transition: color 0.3s;">JavaScript</a></li>
+                        <li class="mb-2"><a href="#" class="text-secondary text-decoration-none" onmouseover="this.className='text-light text-decoration-none'" onmouseout="this.className='text-secondary text-decoration-none'" style="transition: color 0.3s;">C# (.NET)</a></li>
+                        <li class="mb-2"><a href="#" class="text-secondary text-decoration-none" onmouseover="this.className='text-light text-decoration-none'" onmouseout="this.className='text-secondary text-decoration-none'" style="transition: color 0.3s;">SQL Server</a></li>
+                    </ul>
+                </div>
+                
+                <!-- 3. Quick Links Section -->
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="text-uppercase fw-bold text-info mb-3">Quick Links</h5>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a asp-controller="Home" asp-action="Index" class="text-secondary text-decoration-none" onmouseover="this.className='text-light text-decoration-none'" onmouseout="this.className='text-secondary text-decoration-none'" style="transition: color 0.3s;">Home</a></li>
+                        <li class="mb-2"><a asp-controller="Learn" asp-action="Index" class="text-secondary text-decoration-none" onmouseover="this.className='text-light text-decoration-none'" onmouseout="this.className='text-secondary text-decoration-none'" style="transition: color 0.3s;">Courses</a></li>
+                        <li class="mb-2"><a href="#" class="text-secondary text-decoration-none" onmouseover="this.className='text-light text-decoration-none'" onmouseout="this.className='text-secondary text-decoration-none'" style="transition: color 0.3s;">About Us</a></li>
+                        <li class="mb-2"><a asp-controller="Home" asp-action="Contact" class="text-secondary text-decoration-none" onmouseover="this.className='text-light text-decoration-none'" onmouseout="this.className='text-secondary text-decoration-none'" style="transition: color 0.3s;">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- 4. Contact & Newsletter Section -->
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-uppercase fw-bold text-info mb-3">Contact Info</h5>
+                    <ul class="list-unstyled small text-secondary mb-4">
+                        <li class="mb-2"><i class="fas fa-envelope text-info me-2"></i> info@study2crack.com</li>
+                        <li class="mb-2"><i class="fas fa-phone text-info me-2"></i> +91 XXXXXXXXXX</li>
+                        <li class="mb-2"><i class="fas fa-map-marker-alt text-info me-2"></i> Pune, India</li>
+                    </ul>
+                    
+                    <h6 class="text-uppercase fw-bold text-light mb-2" style="font-size: 0.85rem;">Newsletter</h6>
+                    <form class="d-flex">
+                        <input type="email" class="form-control form-control-sm bg-dark text-light border-secondary me-2" placeholder="Email address" required>
+                        <button class="btn btn-sm btn-info text-dark fw-bold" type="submit">Subscribe</button>
+                    </form>
+                </div>
+                
+                <!-- 5. Social Media Icons -->
+                <div class="col-lg-2 col-md-12 text-lg-end text-md-start">
+                    <h5 class="text-uppercase fw-bold text-info mb-3">Follow Us</h5>
+                    <div class="d-flex justify-content-lg-end justify-content-start gap-3 fs-4">
+                        <!-- LinkedIn -->
+                        <a href="https://www.linkedin.com/in/dipak-chande/" target="_blank" class="text-info opacity-75" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.75'">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <!-- GitHub -->
+                        <a href="https://github.com/dipak921" target="_blank" class="text-light opacity-75" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.75'">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <!-- Instagram -->
+                        <a href="https://www.instagram.com/mr._.dipak.c/" target="_blank" class="text-danger opacity-75" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.75'">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <!-- Bottom Divider -->
+            <hr class="mt-4 mb-4 border-secondary opacity-25">
+            
+            <!-- Copyright Bottom Bar -->
+            <div class="row">
+                <div class="col-12 text-center text-md-center">
+                    <p class="small text-secondary mb-0">&copy; 2026 Study2Crack. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer End -->
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

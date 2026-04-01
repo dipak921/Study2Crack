@@ -1,0 +1,41 @@
+@model IEnumerable<ELearningPlatform.Models.Course>
+@{
+    ViewData["Title"] = "Course Catalog";
+}
+
+<div class="row mb-5 mt-3 text-center">
+    <div class="col-12">
+        <h1 class="display-5 fw-bold" style="color: #e2e8f0;">Course Collection</h1>
+        <p class="text-secondary fs-5 mt-2">Pick a track and start mastering development today.</p>
+    </div>
+</div>
+
+<div class="row">
+    @if(Model != null && Model.Any())
+    {
+        foreach (var item in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm border-0">
+                    <div class="card-body">
+                        <h4 class="card-title fw-bold text-light">@item.Title</h4>
+                        <p class="card-text text-secondary mt-3">@item.Description</p>
+                    </div>
+                    <div class="card-footer bg-transparent border-0 pb-4">
+                        <a asp-controller="Learn" asp-action="CourseOverview" asp-route-id="@item.Id" class="btn btn-primary w-100 py-2 shadow-sm">View Curriculum</a>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <div class="col-12 text-center text-muted mt-5">
+            <p class="fs-4">No courses available right now.</p>
+            @if (User.Identity != null && User.Identity.IsAuthenticated)
+            {
+                <a asp-controller="Courses" asp-action="Create" class="btn btn-outline-primary mt-3">Add First Course</a>
+            }
+        </div>
+    }
+</div>

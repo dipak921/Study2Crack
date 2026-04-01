@@ -1,0 +1,39 @@
+@model IEnumerable<ELearningPlatform.Models.Course>
+@{
+    ViewData["Title"] = "Manage Topics";
+}
+<h1>Manage Topics by Course</h1>
+<p class="text-secondary">Select a course below to add a new topic to it.</p>
+
+<table class="table table-dark table-hover mt-3" style="border-radius: 8px; overflow: hidden;">
+    <thead>
+        <tr>
+            <th>Course Title</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            foreach (var item in Model) {
+                <tr>
+                    <td class="fw-bold">@item.Title</td>
+                    <td>@item.Description</td>
+                    <td>
+                        <a asp-controller="Topics" asp-action="Create" asp-route-courseId="@item.Id" class="btn btn-sm btn-success">+ Add Topic</a>
+                        <a asp-controller="Learn" asp-action="CourseOverview" asp-route-id="@item.Id" class="btn btn-sm btn-outline-info">View Topics</a>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="3" class="text-center text-muted py-4">
+                    No courses found. <a asp-controller="Courses" asp-action="Create">Create a course first.</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
