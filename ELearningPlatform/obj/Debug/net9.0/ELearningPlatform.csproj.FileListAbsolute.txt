@@ -325,3 +325,4 @@ C:\Git Hub Project\Study2Crack\ELearningPlatform\bin\Debug\net9.0\tr\Microsoft.C
 C:\Git Hub Project\Study2Crack\ELearningPlatform\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Scripting.resources.dll
 C:\Git Hub Project\Study2Crack\ELearningPlatform\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Scripting.resources.dll
 C:\Git Hub Project\Study2Crack\ELearningPlatform\obj\Debug\net9.0\compressed\yti7k670wj-5f0h9dqwba.gz
+C:\Git Hub Project\Study2Crack\ELearningPlatform\obj\Debug\net9.0\ELearningPlatform.sourcelink.json
